@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "./redux/store";
+import Home from "./pages/Home";
+import AboutUs from "./pages/static/AboutUs";
+import ContactUs from "./pages/static/ContactUs";
+import Bookings from "./pages/Bookings";
+import NotFound from "./pages/static/NotFound";
+import Layout from "./components/Layout/Layout";
+import ScrollToTop from "./components/shared/ScrollToTop";
+import Toast from "./components/shared/Toast";
 
-function App() {
+const App: React.FC = () => {
+  const theme = useSelector((state: RootState) => state.theme.mode);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ScrollToTop />
+      <Layout>
+        <Toast />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/bookings" element={<Bookings />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
-}
+};
 
 export default App;
