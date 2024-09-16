@@ -1,0 +1,170 @@
+.footerSection {
+    width: 100%;
+    position: relative;
+    border-top: 0.1rem solid;
+    border-radius: 15px 15px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: 2fr 3fr 2fr;
+    }
+}
+
+.brandSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logoLink {
+    display: inline-block;
+    font-size: larger;
+    color: var(--text-color);
+    text-decoration-color: var(--primary-color);
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.description {
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.linksSection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list li {
+    margin-bottom: 0.75rem;
+}
+
+.list a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.list a:hover {
+    color: var(--primary-color);
+}
+
+.subscribeSection {
+    text-align: left;
+    padding: 1rem;
+}
+
+.subscribeDescription {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; 
+}
+
+.input {
+    flex: 1 1 auto;
+    min-width: 0; 
+    padding: 0.75rem;
+    border: 1px solid #4a5568;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #2d3748;
+    background-color: #fff;
+}
+
+.subscribeButton {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subscribeButton:hover {
+    background-color: var(--primary-color-hover);
+}
+
+@media (max-width: 767px) {
+    .form {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .input,
+    .subscribeButton {
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    }
+
+    .subscribeButton {
+        margin-top: -0.5rem;
+    }
+}
+
+.bottomSection {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .bottomSection {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.bottomLinks {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.bottomLinks li {
+    margin: 0;
+}
+
+.bottomLinks a {
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.bottomLinks a:hover {
+    color: var(--primary-color, var(--primary-color));
+}
